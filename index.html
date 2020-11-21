@@ -1,5 +1,7 @@
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="https://use.typekit.net/fbz0nra.css">
+  
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="ta.css">
@@ -7,39 +9,59 @@
     <title>True American Game</title>
 </head>
 <body>
-    <h1 id="title">True American Game</h1>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Ta</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="aboutUs.html">About Us</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="theRules.html">The Rules</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="theGame.html">Play the Game</a>
-              </li>
+  <div>
+    <script src="components/header.js" type="text/javascript" defer></script>
+    <header-component></header-component>
+
+    <section id="whatIs">
+      <div class="container">
+        <div class="row">
+        <div class="col-md-8">
+          <h1>What is True American?</h1>
+          <p>True American is part Candy Land, part drinking game, and 100% ridiculous. It's a game played on <i>New Girl</i>, 
+            but their version gets boring after a while.</p>
+          <p>So we made some adjustments to keep it just as confusing, and even more fun.</p>
+          
+          <p>The president picks 2 cards, and everyone does what the cards say. Then the game tells you how many spots to move.</p>
+          <p>Repeat until unable to walk. Simple.</p>
+          <p class="smaller">Oh, and the floor is lava.</p>
         </div>
-        </nav>
-        <h2>JFK ... FDR!</h2>
-        <div class="jumbotron">
-            <h1 class="display-4">Welcome to True American!</h1>
-            <p class="lead">A mix of candyland and drinking. It's actualy 90% drinking with a loose candyland structure.</p>
-            <hr class="my-4">
-            <p>First time playing?</p>
-            <a class="btn btn-primary btn-lg" href="theRules.html" role="button">Learn the Rules</a>
+        <div class="col-md-4">
+          <img src="https://spoonuniversity.com/wp-content/uploads/sites/106/2016/02/7255d3c69f4b165b_1234-jfk.xxxlarge.gif" alt="True American GIF">
+        </div>
+        <button type="button" class="btn btn-play btn-lg">Play the Game</button>
+        <button type="button" class="btn btn-info btn-lg">Read the Rules</button>
+      </div>
+      </div>
+    </section>
+    
+    <section id="rules">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8">
+            <h2>Make sure you're ready</h2> 
+            <p>You don't need all of these to play, but some things make the game more fun:</p>
+
+            <input type="checkbox" name="pbr" value="pbr"> PBR. The true beer of True American <br>
+            <input type="checkbox" name="cups" value="cups"> Solo cups, and a table big enough for beer pong<br>
+            <input type="checkbox" name="object" value="object"> Any hard-to-break object about the size of a football (we used a small foam roller)<br>
+            <input type="checkbox" name="sauce" value="sauce"> Hot sauce<br>
+            <input type="checkbox" name="gin" value="gin"> Gin<br>
+            <input type="checkbox" name="moonshine" value="moonshine"> Moonshine<br>
+            <input type="checkbox" name="balls" value="balls"> Ping pong balls<br>
+            <input type="checkbox" name="camera" value="camera"> A camera to capture the best moments<br>
+            <input type="checkbox" name="friends" value="friends"> Good friends who are game for anything<br>
           </div>
-          <div>
+
+          <div class="col-md-4">
+            <h2>Insert images from the first game here</h2>
           </div>
+        </div>
+      </div>
+    </section>
+
+  </div> 
+
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 </body>
