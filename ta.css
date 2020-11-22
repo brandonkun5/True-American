@@ -1,6 +1,7 @@
 #playingcard {
     border-color: #18206f;
     border-width: 3px;
+    max-width: 100%;
 /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 }
 
@@ -15,6 +16,21 @@ font-style: normal;
 font-size: 2.4rem !important;
 }
 
+h2 {
+    font-family: tablet-gothic, sans-serif;
+
+    font-weight: 800;
+    
+    font-style: normal;
+}
+
+p {
+    font-family: tablet-gothic, sans-serif;
+
+    font-weight: 400;
+    
+    font-style: normal;
+}
 #whatIs h1 {
     font-family: tablet-gothic, sans-serif;
 
@@ -111,7 +127,7 @@ img {
     font-size: 0.5rem;
 }
 
-.jumbotron.jumbotron-fluid.welcome {
+.jumbotron.jumbotron-fluid.welcome, #reminder {
     background-color: #95313C;
     color: #F1E9DE;
     margin-bottom: none;
@@ -135,9 +151,9 @@ p.lead {
     font-size: 1.2rem;
 }
 
-#welcome {
+/* #welcome {
     margin-bottom: -5rem;
-}
+} */
 
 #firstgame {
     padding-top: 0.5rem;
@@ -161,12 +177,8 @@ p.lead {
     font-style: normal;
 }
 
-.card-title{
-    /* font-family: tablet-gothic, sans-serif;
+.card-title {
 
-    font-weight: 800;
-
-    font-style: normal; */
     font-family: gin, serif;
 
 font-weight: 400;
