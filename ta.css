@@ -6,7 +6,7 @@
 
 
 #navbar-brand {
-    font-family: gin, serif;
+font-family: gin, serif;
 
 font-weight: 400;
 
@@ -50,7 +50,7 @@ font-size: 2.4rem !important;
     margin-right: 1rem;
 }
 
-.btn.btn-play, #nextCard {
+.btn.btn-play, #nextCard, #startGame {
     color: white !important;
     background: #B5854B !important;
     border-color: #866236 !important;
@@ -64,7 +64,7 @@ font-size: 2.4rem !important;
     color: black;
 }
 
-.btn.btn-play:hover, #nextCard:hover{
+.btn.btn-play:hover, #nextCard:hover, #startGame:hover{
     box-shadow: inset 0 -4px 0 0 #563F24;
 }
 
@@ -151,4 +151,43 @@ p.lead {
 #newgirl {
     background-color: #F1E9DE;
 
+}
+
+.footer {
+    font-family: tablet-gothic, sans-serif;
+
+    font-weight: 400;
+
+    font-style: normal;
+}
+
+.card-title{
+    /* font-family: tablet-gothic, sans-serif;
+
+    font-weight: 800;
+
+    font-style: normal; */
+    font-family: gin, serif;
+
+font-weight: 400;
+
+font-style: normal;
+
+font-size: 1.5rem;
+}
+
+.card-body {
+    font-family: tablet-gothic, sans-serif;
+
+    font-weight: 400;
+
+    font-style: normal;
+}
+
+#play.h1 {
+    font-family: tablet-gothic, sans-serif;
+
+    font-weight: 800;
+
+    font-style: normal;
 }
