@@ -22,7 +22,7 @@ font-size: 2.4rem !important;
     
     font-style: normal;
 
-    color: #B5854B;
+    color: #F1E9DE;
 
     margin-bottom: 2.1875rem;
 }
@@ -42,7 +42,7 @@ font-size: 2.4rem !important;
 #whatIs {
     background-color: #232935;
 
-    padding-bottom: 0.5rem;;
+    padding-bottom: 0.5rem;
 }
 
 #whatIs .btn {
@@ -79,7 +79,7 @@ img {
     height: auto;
   }
 
-  #rules h1 {
+#rules h1 {
     font-family: tablet-gothic, sans-serif;
 
     font-weight: 800;
@@ -109,4 +109,46 @@ img {
 
 #whatIs p.smaller {
     font-size: 0.5rem;
+}
+
+.jumbotron.jumbotron-fluid.welcome {
+    background-color: #95313C;
+    color: #F1E9DE;
+    margin-bottom: none;
+}
+
+h1.display-4 {
+    font-family: tablet-gothic, sans-serif;
+
+    font-weight: 800;
+    
+    font-style: normal;
+}
+
+p.lead {
+    font-family: tablet-gothic, sans-serif;
+
+    font-weight: 400;
+
+    font-style: normal;
+
+    font-size: 1.2rem;
+}
+
+#welcome {
+    margin-bottom: -5rem;
+}
+
+#firstgame {
+    padding-top: 0.5rem;
+    background-color: #232935;
+
+    padding-bottom: 0.5rem;
+
+    color: #F1E9DE;
+}
+
+#newgirl {
+    background-color: #F1E9DE;
+
 }
