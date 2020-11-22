@@ -29,6 +29,17 @@ var vegasCard= new card('Vegas Baby', 'bigGame', 'Play Bet Your Liver',  'https:
 var rbgCard= new card('Ruth Bader Gin-sberg', 'bigGame', 'Play Rage Cage. Middle cup has to include gin', 'https://psycatgames.com/magazine/party-games/rage-cage/', 'How to play Rage Cage', 0, 0, 2);
 var civilWarCard= new card('Civil War', 'bigGame', 'Play Civil War', 'https://www.drinkinggamezone.com/drinking-games/civil-war/#:~:text=Civil%20War%20is%20similar%20to%20both%20Beer%20Pong,their%20choice%20of%20the%20opposing%20team%20player%27s%20cups.', 'How to play Civil War', 0, 0, 2);
 var gameOverCard= new card('Game Over', 'finish', 'You went through the whole deck! To keep going, just hit the start game button', '', '', 0, 0, 0)
+
+var swap2 = new card("Assasination", 'movement', 'President switches seats with the player 2 spots to their left', '', '', 0, 0, 2);
+var swap3 = new card("Assasination", 'movement', 'President switches seats with the player 3 spots to their right', '', '', 0, 0, 2);
+var move4 = new card("Move 4", 'movement', 'Everyone moves clockwise 4 spots', '', '', 0, 0, 3);
+var move2 = new card("Move 2", 'movement', 'Everyone moves clockwise 2 spots', '', '', 0, 0, 4);
+var swap = new card("Cabinet Change", 'movement', 'The players directly left and right of the president switch places', '', '', 0, 0, 3);
+var move3 = new card("Move 3", 'movement', 'Everyone moves clockwise 3 spots', '', '', 0, 0, 4);
+var tall = new card("Tall People", 'movement', 'The tallest player switches places with the shortest player', '', '', 0, 0, 1);
+
+var mvmtCards = [swap2, swap3, move4, move2, swap, move3, tall];
+
 var listOfCards = [prohibitionCard, woodstockCard, bostontPartyCard, flipCard, barackObamaCard, southCard, monicaLCard,
     souCard, sbaCard, illuminatiCard, abeCard, coldWarCard, capitalCard, vegasCard, rbgCard, civilWarCard];
 
@@ -36,6 +47,7 @@ var listOfCards = [prohibitionCard, woodstockCard, bostontPartyCard, flipCard, b
 function deck() {
     this.cards = [];
 }
+
 
 function fillDeck(cards, emptydeck) {
     cards.forEach((c) => {
@@ -49,7 +61,32 @@ function fillDeck(cards, emptydeck) {
     shuffleCards();
 };
 
+function fillmvmtDeck(cards, emptydeck) {
+    cards.forEach((c) => {
+
+        for (let i = 0; i < c.deckCount; i++) {
+            emptydeck.cards.push(c);
+        }
+
+    } );
+    function shuffle(array) {
+        var j, x, i; 
+    
+        for (i = array.length - 1; i > 0; i--) {
+            j = Math.floor(Math.random() * (i + 1));
+            x = array[i];
+            array[i] = array[j];
+            array[j] = x;
+        }
+    
+        return array;
+    };
+    shuffle(emptydeck.cards);
+    console.log(emptydeck.cards);
+};
+
 var gamedeck = new deck();
+var mvmtdeck = new deck();
 
 function shuffleCards() {
     
@@ -89,19 +126,35 @@ var startButton = document.getElementById("startGame");
 
 startButton.addEventListener("click", function() {
     fillDeck(listOfCards, gamedeck);
+    fillmvmtDeck(mvmtCards, mvmtdeck);
 });
 
 startButton.addEventListener("click", function() {
     showCards("playingcard", "startGame");
+
 });
 
+var clicks = 0;
 
-document.getElementById("nextCard").addEventListener("click", next);
+document.getElementById("nextCard").addEventListener("click", function() {
+    next(clicks);
+    if (clicks === 2) {
+        clicks = 0;
+    }
+    else {
+        clicks++;
+    }
 
-function next() {
-    if (gamedeck.cards.length == 0) {
+});
+
+function next(count) {
+    console.log(count);
+    if (gamedeck.cards.length === 0) {
         var card = gameOverCard;
         restart();
+    }
+    else if (count === 2) {
+        var card = mvmtdeck.cards.pop()
     }
     else {
         var card = gamedeck.cards.pop()
@@ -113,7 +166,6 @@ function next() {
     $('a#cardLink').text(card.linkText);
 
 }
-
 
 function showCards(cardId, buttonId) {
     var game = document.getElementById(cardId);
@@ -133,6 +185,8 @@ function showCards(cardId, buttonId) {
 
 function restart() {
     fillDeck(listOfCards, gamedeck);
+    mvmtdeck.cards = [];
+    fillmvmtDeck(mvmtCards, mvmtdeck);
     var card = gamedeck.cards.pop()
     $('h5#cardTitle').text(card.name);
     $('p#cardText').text(card.description);
