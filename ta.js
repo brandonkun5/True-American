@@ -45,9 +45,7 @@ var mvmtCards = [swap2, swap3, move4, move2, swap, move3, tall];
 var listOfCards = [prohibitionCard, woodstockCard, goldRushCard, bostontPartyCard, flipCard, barackObamaCard, southCard, ddayCard, monicaLCard,
     souCard, sbaCard, illuminatiCard, abeCard, coldWarCard, capitalCard, vegasCard, rbgCard, civilWarCard];
 
-fillPlayingDeck(listOfCards, test.cards);
 
-console.log(test.cards.length);
 
 function fillPlayingDeck(cards, emptydeck) {
     var bigCards = [];
@@ -74,11 +72,11 @@ function fillPlayingDeck(cards, emptydeck) {
 
         if (counter === limit) {
             counter = 0;
-            emptydeck.push(bigCards.pop());
+            emptydeck.cards.push(bigCards.pop());
             limit = Math.floor(Math.random() * 2) + 3;
         }
 
-        emptydeck.push(miniCards.pop());
+        emptydeck.cards.push(miniCards.pop());
 
         counter++;
     }
