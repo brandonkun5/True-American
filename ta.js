@@ -12,14 +12,16 @@ function card(name, type, description, link, linkText, amtPulled, skips, deckCou
 }
 
 //List of cards
-var prohibitionCard= new card('Prohibition', 'miniGame', 'President, take a shot of moonshine', '', '',0, 0, 2);
+var prohibitionCard= new card('Prohibition', 'miniGame', 'President, take a shot of moonshine', '', '',0, 0, 3);
 var woodstockCard= new card('Woodstock', 'miniGame', 'President, choose a song and play it. First team to guess it wins. All other teams drink.', '', '',0, 0, 4);
+var ddayCard = new card('D-Day', 'miniGame', 'Guys drink', '', '', 0, 0, 5);
+var goldRushCard = new card('Gold Rush', 'bigGame', 'President, hide an object somewhere around the house. One member from each team is blindfolded. Their team guides them to the object using just their voices.', '', '', 0, 0, 1);
 var bostontPartyCard= new card('Boston Tea Party', 'miniGame', 'Put your pinkies in the air, last one has to drink', '', '', 0, 0, 2);
 var barackObamaCard= new card('Barack Obama', 'miniGame', 'Guess the presidents hometown, first team to guess it wins. All other teams drink', '', '', 0, 0, 2);
 var southCard= new card('Neighbors to the South' , 'miniGame', 'Take a shot of hot sauce or take a drink', '', '', 0, 0, 3);
-var monicaLCard= new card('Monica Lewinsky', 'miniGame', 'Play fuck, marry, kill with one person from each team', '', '', 0, 0, 2);
-var souCard= new card('State of the Union', 'miniGame', 'Everyone name a state, no repeats. First person who messes up has to drink', '', '', 0, 0, 2);
-var sbaCard= new card('Susan B. Anthony', 'miniGame', 'All women drink', '',0, 0, 4);
+var monicaLCard= new card('Monica Lewinsky', 'miniGame', 'Play fuck, marry, kill with one person from each team', '', '', 0, 0, 1);
+var souCard= new card('State of the Union', 'miniGame', 'Everyone name a state, no repeats. First person who messes up has to drink', '', '', 0, 0, 3);
+var sbaCard= new card('Susan B. Anthony', 'miniGame', 'All women drink', '', '', 0, 0, 5);
 var illuminatiCard= new card('Illuminati', 'miniGame', 'Play Paranoia', 'https://www.thestagcompany.com/stag-weekends-blog/paranoia-drinking-game', 'How to play Paranoia',0, 0, 2);
 var abeCard= new card('Abraham Lincoln', 'miniGame', 'The president must take a shot', '', '', 0, 0, 3);
 var coldWarCard= new card('Cold War', 'bigGame', 'Play a game of Russian Roulette. Fill some cups with water, some with water, and good luck.', '', '', 0, 0, 2);
@@ -40,26 +42,78 @@ var tall = new card("Tall People", 'movement', 'The tallest player switches plac
 
 var mvmtCards = [swap2, swap3, move4, move2, swap, move3, tall];
 
-var listOfCards = [prohibitionCard, woodstockCard, bostontPartyCard, flipCard, barackObamaCard, southCard, monicaLCard,
+var listOfCards = [prohibitionCard, woodstockCard, goldRushCard, bostontPartyCard, flipCard, barackObamaCard, southCard, ddayCard, monicaLCard,
     souCard, sbaCard, illuminatiCard, abeCard, coldWarCard, capitalCard, vegasCard, rbgCard, civilWarCard];
 
+fillPlayingDeck(listOfCards, test.cards);
+
+console.log(test.cards.length);
+
+function fillPlayingDeck(cards, emptydeck) {
+    var bigCards = [];
+    var miniCards = [];
+
+    cards.forEach(function(c) {
+
+        for (let i = 0; i < c.deckCount; i++) {
+            if (c.type === 'bigGame') {
+                bigCards.push(c);
+            }
+            else {
+                miniCards.push(c);
+            }
+        }
+    });
+    bigCards = rand_shuffle(bigCards);
+    miniCards = rand_shuffle(miniCards);
+
+    var limit = Math.floor(Math.random() * 2) + 2;
+    var counter = 0;
+
+    for (i = miniCards.length - 1; i > 0; i--) {
+
+        if (counter === limit) {
+            counter = 0;
+            emptydeck.push(bigCards.pop());
+            limit = Math.floor(Math.random() * 2) + 3;
+        }
+
+        emptydeck.push(miniCards.pop());
+
+        counter++;
+    }
+
+};
+
+function rand_shuffle(array) {
+    var j, x, i; 
+    
+    for (i = array.length - 1; i > 0; i--) {
+        j = Math.floor(Math.random() * (i + 1));
+        x = array[i];
+        array[i] = array[j];
+        array[j] = x;
+    }
+
+    return array;
+};
 
 function deck() {
     this.cards = [];
-}
-
-
-function fillDeck(cards, emptydeck) {
-    cards.forEach((c) => {
-
-        for (let i = 0; i < c.deckCount; i++) {
-            emptydeck.cards.push(c);
-        }
-
-    } )
-    console.log(emptydeck.cards);
-    shuffleCards();
 };
+
+
+// function fillDeck(cards, emptydeck) {
+//     cards.forEach((c) => {
+
+//         for (let i = 0; i < c.deckCount; i++) {
+//             emptydeck.cards.push(c);
+//         }
+
+//     } )
+//     console.log(emptydeck.cards);
+//     shuffleCards();
+// };
 
 function fillmvmtDeck(cards, emptydeck) {
     cards.forEach((c) => {
@@ -88,44 +142,44 @@ function fillmvmtDeck(cards, emptydeck) {
 var gamedeck = new deck();
 var mvmtdeck = new deck();
 
-function shuffleCards() {
+// function shuffleCards() {
     
-    function shuffle(array) {
-        var j, x, i; 
+//     function shuffle(array) {
+//         var j, x, i; 
     
-        for (i = array.length - 1; i > 0; i--) {
-            j = Math.floor(Math.random() * (i + 1));
-            x = array[i];
-            array[i] = array[j];
-            array[j] = x;
-        }
+//         for (i = array.length - 1; i > 0; i--) {
+//             j = Math.floor(Math.random() * (i + 1));
+//             x = array[i];
+//             array[i] = array[j];
+//             array[j] = x;
+//         }
     
-        return array;
-    };
+//         return array;
+//     };
 
-    shuffle(gamedeck.cards);
-    console.log(gamedeck.cards);
-    extra_shuffle(gamedeck.cards);
-    console.log(gamedeck.cards);
-}
+//     shuffle(gamedeck.cards);
+//     console.log(gamedeck.cards);
+//     extra_shuffle(gamedeck.cards);
+//     console.log(gamedeck.cards);
+// }
 
-function extra_shuffle(array) {
-    for (i = array.length - 1; i > 1; i--) {
-        cur = array[i];
-        nextcard = array[i - 1];
-        if (cur.name === nextcard.name || (cur.type === 'bigGame') && (nextcard.type === 'bigGame')) {
-            console.log(cur.name, nextcard.name);
-            temp = array[i-1];
-            array[i-1] = array[i-2];
-            array[i-2] = temp;
-        }
-    }
-};
+// function extra_shuffle(array) {
+//     for (i = array.length - 1; i > 1; i--) {
+//         cur = array[i];
+//         nextcard = array[i - 1];
+//         if (cur.name === nextcard.name || (cur.type === 'bigGame') && (nextcard.type === 'bigGame')) {
+//             console.log(cur.name, nextcard.name);
+//             temp = array[i-1];
+//             array[i-1] = array[i-2];
+//             array[i-2] = temp;
+//         }
+//     }
+// };
 
 var startButton = document.getElementById("startGame");
 
 startButton.addEventListener("click", function() {
-    fillDeck(listOfCards, gamedeck);
+    fillPlayingDeck(listOfCards, gamedeck);
     fillmvmtDeck(mvmtCards, mvmtdeck);
 });
 
@@ -181,13 +235,17 @@ function showCards(cardId, buttonId) {
    console.log(card, card.name)
    $('h5#cardTitle').text(card.name);
    $('p#cardText').text(card.description);
+   $('a#cardLink').attr("href", card.link);
+   $('a#cardLink').text(card.linkText);
 }
 
 function restart() {
-    fillDeck(listOfCards, gamedeck);
+    fillPlayingDeck(listOfCards, gamedeck);
     mvmtdeck.cards = [];
     fillmvmtDeck(mvmtCards, mvmtdeck);
     var card = gamedeck.cards.pop()
     $('h5#cardTitle').text(card.name);
     $('p#cardText').text(card.description);
+    $('a#cardLink').attr("href", card.link);
+    $('a#cardLink').text(card.linkText);
 }
