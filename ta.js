@@ -15,7 +15,7 @@ function card(name, type, description, link, linkText, amtPulled, skips, deckCou
 var prohibitionCard= new card('Prohibition', 'miniGame', 'President, take a shot of moonshine', '', '',0, 0, 3);
 var woodstockCard= new card('Woodstock', 'miniGame', 'President, choose a song and play it. First team to guess it wins. All other teams drink.', '', '',0, 0, 4);
 var ddayCard = new card('D-Day', 'miniGame', 'Guys drink', '', '', 0, 0, 5);
-var goldRushCard = new card('Gold Rush', 'bigGame', 'President, hide an object somewhere around the house. One member from each team is blindfolded. Their team guides them to the object using just their voices.', '', '', 0, 0, 1);
+var goldRushCard = new card('Gold Rush', 'bigGame', 'President, hide an object somewhere around the house. One member from each team is blindfolded. Their team guides them to the object using just their voices. First team to find it watches everyone else drink', '', '', 0, 0, 1);
 var bostontPartyCard= new card('Boston Tea Party', 'miniGame', 'Put your pinkies in the air, last one has to drink', '', '', 0, 0, 2);
 var barackObamaCard= new card('Barack Obama', 'miniGame', 'Guess the presidents hometown, first team to guess it wins. All other teams drink', '', '', 0, 0, 2);
 var southCard= new card('Neighbors to the South' , 'miniGame', 'Take a shot of hot sauce or take a drink', '', '', 0, 0, 3);
@@ -32,8 +32,8 @@ var rbgCard= new card('Ruth Bader Gin-sberg', 'bigGame', 'Play Rage Cage. Middle
 var civilWarCard= new card('Civil War', 'bigGame', 'Play Civil War', 'https://www.drinkinggamezone.com/drinking-games/civil-war/#:~:text=Civil%20War%20is%20similar%20to%20both%20Beer%20Pong,their%20choice%20of%20the%20opposing%20team%20player%27s%20cups.', 'How to play Civil War', 0, 0, 2);
 var gameOverCard= new card('Game Over', 'finish', 'You went through the whole deck! To keep going, just hit the start game button', '', '', 0, 0, 0)
 
-var swap2 = new card("Assasination", 'movement', 'President switches seats with the player 2 spots to their left', '', '', 0, 0, 2);
-var swap3 = new card("Assasination", 'movement', 'President switches seats with the player 3 spots to their right', '', '', 0, 0, 2);
+var swap2 = new card("Assassination", 'movement', 'President switches seats with the player 2 spots to their left', '', '', 0, 0, 2);
+var swap3 = new card("Assassination", 'movement', 'President switches seats with the player 3 spots to their right', '', '', 0, 0, 2);
 var move4 = new card("Move 4", 'movement', 'Everyone moves clockwise 4 spots', '', '', 0, 0, 3);
 var move2 = new card("Move 2", 'movement', 'Everyone moves clockwise 2 spots', '', '', 0, 0, 4);
 var swap = new card("Cabinet Change", 'movement', 'The players directly left and right of the president switch places', '', '', 0, 0, 3);
